@@ -12,13 +12,8 @@ import java.time.OffsetDateTime;
 @Getter
 @Setter
 public class TransacaoDTO {
+
+    private Integer idTransacao;
     private Double valor;
     private OffsetDateTime dataHora;
-
-    public String toString() {
-        return "{ " +
-                "valor: " + valor +
-                ", dataHora: " + dataHora +
-                " }";
-    }
 }
