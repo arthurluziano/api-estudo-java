@@ -1,21 +1,41 @@
 package com.example.luziano.controllers;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.luziano.domain.TransacaoDTO;
+import com.example.luziano.domain.base.BaseResponse;
+import com.example.luziano.services.TransacaoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/transacao")
 public class TransacaoController {
 
-    @PostMapping
-    public void realizarTransacao() {
+    @Autowired
+    private TransacaoService transacaoService;
 
+    @GetMapping
+    public BaseResponse listaTransacoes() {
+        try {
+            return new BaseResponse(HttpStatus.OK.value(), transacaoService.listaTransacoes());
+        } catch (Exception e) {
+            return new BaseResponse(HttpStatus.BAD_REQUEST.value(), "");
+        }
+    }
+
+    @PostMapping
+    public BaseResponse realizarTransacao(@RequestBody TransacaoDTO transacaoDTO) {
+        try {
+            transacaoService.realizarTransacao(transacaoDTO);
+            return new BaseResponse(HttpStatus.CREATED.value(), "");
+        } catch (Exception e) {
+            return new BaseResponse(HttpStatus.BAD_REQUEST.value(), "");
+        }
     }
 
     @DeleteMapping
-    public void deletarTransacoes() {
-
+    public BaseResponse deletarTransacoes() {
+        transacaoService.deletarTransacoes();
+        return new BaseResponse(HttpStatus.OK.value(), "");
     }
 }

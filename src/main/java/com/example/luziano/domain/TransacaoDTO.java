@@ -14,4 +14,11 @@ import java.time.OffsetDateTime;
 public class TransacaoDTO {
     private Double valor;
     private OffsetDateTime dataHora;
+
+    public String toString() {
+        return "{ " +
+                "valor: " + valor +
+                ", dataHora: " + dataHora +
+                " }";
+    }
 }
