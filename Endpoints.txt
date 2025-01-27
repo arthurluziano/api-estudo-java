@@ -1,0 +1,33 @@
+Endpoints:
+
+	- /transacao
+	- /estatistica
+
+Métodos:
+
+	- POST /transação
+		{
+			"valor": 123.45,
+   		 	"dataHora": "2020-08-07T12:34:56.789-03:00"
+		}
+
+	- DELETE /transação
+
+	- GET /estatística (Transações ocorridas nos últimos 60s).
+		{
+			"count": 10,
+    			"sum": 1234.56,
+    			"avg": 123.456,
+    			"min": 12.34,
+    			"max": 123.56
+		}
+
+	° Regras: 
+		1. Transação não pode ocorrer no futuro.
+		2. Transação deve ter valor >= 0.
+
+	° Retornos:
+		- 200 Ok (Informações apagadas com sucesso).
+		- 201 Created (A transação foi validada, registrada e aceita).
+		- 422 Unprocessable Entity (A transação não foi aceita, 1 ou mais critérios não atendidos).
+		- 400 Bad Request (JSON/Requisição inválida).
