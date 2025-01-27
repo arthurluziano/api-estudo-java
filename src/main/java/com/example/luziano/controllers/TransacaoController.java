@@ -1,7 +1,6 @@
 package com.example.luziano.controllers;
 
 import com.example.luziano.domain.TransacaoDTO;
-import com.example.luziano.domain.base.BaseResponse;
 import com.example.luziano.domain.base.TransacaoNegativaException;
 import com.example.luziano.services.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ public class TransacaoController {
     private TransacaoService transacaoService;
 
     @PostMapping
-    public Object realizarTransacao(@RequestBody TransacaoDTO transacaoDTO) throws Exception {
+    public ResponseEntity<?> realizarTransacao(@RequestBody TransacaoDTO transacaoDTO) throws Exception {
         try {
             transacaoService.realizarTransacao(transacaoDTO);
             return new ResponseEntity<>(null, HttpStatus.CREATED);
@@ -33,7 +32,7 @@ public class TransacaoController {
     }
 
     @DeleteMapping
-    public Object deletarTransacoes() {
+    public ResponseEntity<?> deletarTransacoes() {
         try {
             transacaoService.deletarTransacoes();
             return ResponseEntity.ok().build();

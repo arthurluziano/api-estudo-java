@@ -46,4 +46,8 @@ public class TransacaoService {
 
         return true;
     }
+
+    public List<TransacaoDTO> getListaDeTransacoes() {
+        return listaTransacoes;
+    }
 }
