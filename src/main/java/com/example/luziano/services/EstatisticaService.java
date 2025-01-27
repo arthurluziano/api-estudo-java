@@ -49,7 +49,7 @@ public class EstatisticaService {
 
             novaLista.forEach(transacao -> {
                 sum.set(transacao.getValor() + Double.parseDouble(String.valueOf(sum)));
-                min.set(transacao.getValor() > Double.parseDouble(String.valueOf(min)) ? min.updateAndGet(minimun -> transacao.getValor()) : transacao.getValor());
+                min.set(transacao.getValor() > Double.parseDouble(String.valueOf(min)) ? Double.parseDouble(String.valueOf(min)) : min.updateAndGet(minimun -> transacao.getValor()));
                 max.set(transacao.getValor() < Double.parseDouble(String.valueOf(max)) ? Double.parseDouble(String.valueOf(max)) : max.updateAndGet(maximun -> transacao.getValor()));
 
                 media.updateAndGet(v -> v + transacao.getValor());
