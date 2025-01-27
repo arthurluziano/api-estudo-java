@@ -6,8 +6,6 @@ Esta é uma API capaz de realizar, excluir e obter estatísticas sobre
 transações em memória feitas pelo usuário, seguindo as regras do 
 **[Desafio Itaú Vaga 99 Junior](https://github.com/rafaellins-itau/desafio-itau-vaga-99-junior/tree/main?tab=readme-ov-file)**.
 
-<hr>
-
 ## Tecnologias:
 
 - **Java (17)**
@@ -21,8 +19,6 @@ transações em memória feitas pelo usuário, seguindo as regras do
 - **Spring Initializr**
 - **GitHub**
 - **Postman**
-
-<hr>
 
 ## Como rodar o projeto:
 
@@ -41,8 +37,6 @@ git clone https://github.com/arthurluziano/api-estudo-java.git
 
 Feito isso, vamos [abrir esse projeto no Intellij](https://www.youtube.com/watch?v=aY1FSlcGClE&ab_channel=DanielAmaral). <br>
 Deixe-o aberto por alguns minutos para que o Intellij consiga configurá-lo corretamente.
-
-<hr>
 
 ### 1. Iniciando a aplicação
 
